@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="debugTest">
+        <s:complexType />
+      </s:element>
+      <s:element name="debugTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="debugTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguagesList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLanguagesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLanguagesListResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddWord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="word" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddWordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddLanguageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllWordsResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterStudent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="surname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang_native" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang_learning" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterStudentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterStudentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUsersResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogInResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNativeLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNativeLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNativeLanguageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLearningLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLearningLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLearningLanguageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createMultipleRandomQuizes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nativeLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createMultipleRandomQuizesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="createMultipleRandomQuizesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createOneQuiz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Q_word" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createOneQuizResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="createOneQuizResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentQuizes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentQuizesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentQuizesResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="submitQuizAnswer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="asnwer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="submitQuizAnswerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="submitQuizAnswerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="submitGrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="grade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="submitGradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="submitGradeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGradeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="debugTestSoapIn">
+    <wsdl:part name="parameters" element="tns:debugTest" />
+  </wsdl:message>
+  <wsdl:message name="debugTestSoapOut">
+    <wsdl:part name="parameters" element="tns:debugTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguagesList" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguagesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddWordSoapIn">
+    <wsdl:part name="parameters" element="tns:AddWord" />
+  </wsdl:message>
+  <wsdl:message name="AddWordSoapOut">
+    <wsdl:part name="parameters" element="tns:AddWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLanguage" />
+  </wsdl:message>
+  <wsdl:message name="AddLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllWords" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllWordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterStudentSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterStudent" />
+  </wsdl:message>
+  <wsdl:message name="RegisterStudentSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapIn">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapOut">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNativeLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:getNativeLanguage" />
+  </wsdl:message>
+  <wsdl:message name="getNativeLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:getNativeLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLearningLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:getLearningLanguage" />
+  </wsdl:message>
+  <wsdl:message name="getLearningLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:getLearningLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="createMultipleRandomQuizesSoapIn">
+    <wsdl:part name="parameters" element="tns:createMultipleRandomQuizes" />
+  </wsdl:message>
+  <wsdl:message name="createMultipleRandomQuizesSoapOut">
+    <wsdl:part name="parameters" element="tns:createMultipleRandomQuizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="createOneQuizSoapIn">
+    <wsdl:part name="parameters" element="tns:createOneQuiz" />
+  </wsdl:message>
+  <wsdl:message name="createOneQuizSoapOut">
+    <wsdl:part name="parameters" element="tns:createOneQuizResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentQuizesSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentQuizes" />
+  </wsdl:message>
+  <wsdl:message name="getStudentQuizesSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentQuizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="submitQuizAnswerSoapIn">
+    <wsdl:part name="parameters" element="tns:submitQuizAnswer" />
+  </wsdl:message>
+  <wsdl:message name="submitQuizAnswerSoapOut">
+    <wsdl:part name="parameters" element="tns:submitQuizAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="submitGradeSoapIn">
+    <wsdl:part name="parameters" element="tns:submitGrade" />
+  </wsdl:message>
+  <wsdl:message name="submitGradeSoapOut">
+    <wsdl:part name="parameters" element="tns:submitGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGradeSoapIn">
+    <wsdl:part name="parameters" element="tns:getGrade" />
+  </wsdl:message>
+  <wsdl:message name="getGradeSoapOut">
+    <wsdl:part name="parameters" element="tns:getGradeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicesMultiplatformSoap">
+    <wsdl:operation name="debugTest">
+      <wsdl:input message="tns:debugTestSoapIn" />
+      <wsdl:output message="tns:debugTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesList">
+      <wsdl:input message="tns:GetLanguagesListSoapIn" />
+      <wsdl:output message="tns:GetLanguagesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWord">
+      <wsdl:input message="tns:AddWordSoapIn" />
+      <wsdl:output message="tns:AddWordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguage">
+      <wsdl:input message="tns:AddLanguageSoapIn" />
+      <wsdl:output message="tns:AddLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWords">
+      <wsdl:input message="tns:GetAllWordsSoapIn" />
+      <wsdl:output message="tns:GetAllWordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterStudent">
+      <wsdl:input message="tns:RegisterStudentSoapIn" />
+      <wsdl:output message="tns:RegisterStudentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input message="tns:GetAllUsersSoapIn" />
+      <wsdl:output message="tns:GetAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input message="tns:LogInSoapIn" />
+      <wsdl:output message="tns:LogInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNativeLanguage">
+      <wsdl:input message="tns:getNativeLanguageSoapIn" />
+      <wsdl:output message="tns:getNativeLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLearningLanguage">
+      <wsdl:input message="tns:getLearningLanguageSoapIn" />
+      <wsdl:output message="tns:getLearningLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createMultipleRandomQuizes">
+      <wsdl:input message="tns:createMultipleRandomQuizesSoapIn" />
+      <wsdl:output message="tns:createMultipleRandomQuizesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createOneQuiz">
+      <wsdl:input message="tns:createOneQuizSoapIn" />
+      <wsdl:output message="tns:createOneQuizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentQuizes">
+      <wsdl:input message="tns:getStudentQuizesSoapIn" />
+      <wsdl:output message="tns:getStudentQuizesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="submitQuizAnswer">
+      <wsdl:input message="tns:submitQuizAnswerSoapIn" />
+      <wsdl:output message="tns:submitQuizAnswerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="submitGrade">
+      <wsdl:input message="tns:submitGradeSoapIn" />
+      <wsdl:output message="tns:submitGradeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGrade">
+      <wsdl:input message="tns:getGradeSoapIn" />
+      <wsdl:output message="tns:getGradeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicesMultiplatformSoap" type="tns:WebServicesMultiplatformSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="debugTest">
+      <soap:operation soapAction="http://tempuri.org/debugTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesList">
+      <soap:operation soapAction="http://tempuri.org/GetLanguagesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWord">
+      <soap:operation soapAction="http://tempuri.org/AddWord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguage">
+      <soap:operation soapAction="http://tempuri.org/AddLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWords">
+      <soap:operation soapAction="http://tempuri.org/GetAllWords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterStudent">
+      <soap:operation soapAction="http://tempuri.org/RegisterStudent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap:operation soapAction="http://tempuri.org/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNativeLanguage">
+      <soap:operation soapAction="http://tempuri.org/getNativeLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLearningLanguage">
+      <soap:operation soapAction="http://tempuri.org/getLearningLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createMultipleRandomQuizes">
+      <soap:operation soapAction="http://tempuri.org/createMultipleRandomQuizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOneQuiz">
+      <soap:operation soapAction="http://tempuri.org/createOneQuiz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentQuizes">
+      <soap:operation soapAction="http://tempuri.org/getStudentQuizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitQuizAnswer">
+      <soap:operation soapAction="http://tempuri.org/submitQuizAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitGrade">
+      <soap:operation soapAction="http://tempuri.org/submitGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrade">
+      <soap:operation soapAction="http://tempuri.org/getGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicesMultiplatformSoap12" type="tns:WebServicesMultiplatformSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="debugTest">
+      <soap12:operation soapAction="http://tempuri.org/debugTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesList">
+      <soap12:operation soapAction="http://tempuri.org/GetLanguagesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWord">
+      <soap12:operation soapAction="http://tempuri.org/AddWord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguage">
+      <soap12:operation soapAction="http://tempuri.org/AddLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWords">
+      <soap12:operation soapAction="http://tempuri.org/GetAllWords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterStudent">
+      <soap12:operation soapAction="http://tempuri.org/RegisterStudent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap12:operation soapAction="http://tempuri.org/LogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNativeLanguage">
+      <soap12:operation soapAction="http://tempuri.org/getNativeLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLearningLanguage">
+      <soap12:operation soapAction="http://tempuri.org/getLearningLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createMultipleRandomQuizes">
+      <soap12:operation soapAction="http://tempuri.org/createMultipleRandomQuizes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOneQuiz">
+      <soap12:operation soapAction="http://tempuri.org/createOneQuiz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentQuizes">
+      <soap12:operation soapAction="http://tempuri.org/getStudentQuizes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitQuizAnswer">
+      <soap12:operation soapAction="http://tempuri.org/submitQuizAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitGrade">
+      <soap12:operation soapAction="http://tempuri.org/submitGrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrade">
+      <soap12:operation soapAction="http://tempuri.org/getGrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServicesMultiplatform">
+    <wsdl:port name="WebServicesMultiplatformSoap" binding="tns:WebServicesMultiplatformSoap">
+      <soap:address location="http://lab7mds.azurewebsites.net/WebServicesMultiplatform.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicesMultiplatformSoap12" binding="tns:WebServicesMultiplatformSoap12">
+      <soap12:address location="http://lab7mds.azurewebsites.net/WebServicesMultiplatform.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
